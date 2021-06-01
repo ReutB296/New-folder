@@ -1,0 +1,174 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    display: grid;
+    grid-template-columns: auto 1000px auto;
+    grid-template-rows: 150px auto 150px;
+    grid-template-areas: 
+        "gutter header  gutter-r"
+        "gutter main    gutter-r"
+        "gutter footer  gutter-r";
+
+    min-height: 100vh;;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: black;
+    text-decoration: none;
+}
+
+.important-button {
+    background: darkslateblue;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main article {
+    padding-right: 30%;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    background-image: url('../Assets/Illustration.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+main article h1 {
+    font-size: 50px;
+    color: darkslateblue;
+    font-weight: 700;
+}
+
+main article aside {
+    align-self: flex-start;
+    order: -1;
+    font-size: 20px;
+    background: darkslateblue;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    display: inline-block;
+}
+
+main article aside a {
+    color: white;
+}
+
+main form {
+    display: flex;
+    gap: 15px;
+}
+
+main input {
+    padding: 0px 20px;
+    line-height: 50px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+}
+
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;;
+}
+
+footer ul {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 1000px) {
+    body {
+        grid-template-columns: 20px auto 20px;
+    }
+
+    main article {
+        background-image: none;
+        padding: 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    main article aside {
+        align-self: center;
+    }
+
+    header nav ul {
+        transform: translateX(100%);
+    }
+
+    header nav::before {
+        content:  '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url('../Assets/Hamburger\ Menu.svg');
+    }
+
+    header nav:hover ul {
+        transform: translateX(0);
+    }
+
+    header nav ul {
+        transition: all 300ms;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        color: white;
+        background: rgba(0,0,0,.8);
+        flex-direction: column;
+        padding: 50px 70px;
+        gap: 50px;
+    }
+
+    header nav a {
+        color: white;
+    }
+}
+
+@media (max-width: 490px) {
+    main article form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+    }
+
+    main article h1 { 
+        font-size: 30px;
+    }
+
+    main {
+        margin-bottom: 30px;
+    }
+}
